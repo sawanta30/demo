@@ -3,7 +3,7 @@ package com.example.demo.core.innerclasses;
 public class Outer {
     int a = 1;
     static int b = 50;
-    private  class Inner {
+    protected  class Inner {
         int a = 10;
 
         public void m1(){
