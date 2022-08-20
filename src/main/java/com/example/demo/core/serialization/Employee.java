@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class Employee implements Serializable {
 
-    //private static final long serialVersionUID = 12345667;
+    private static final long serialVersionUID = 12345667;
     private static final String ORG = "ACCENTURE";
-    private int id;
-    private String name;
+    final transient private int id;
+    transient final private String name;
 
     public Employee(int id, String name) {
         this.id = id;
@@ -18,17 +18,17 @@ public class Employee implements Serializable {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+//    public void setName(String name) {
+//        this.name = name;
+//    }
 
     @Override
     public String toString() {

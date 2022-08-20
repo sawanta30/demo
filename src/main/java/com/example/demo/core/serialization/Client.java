@@ -9,7 +9,7 @@ public class Client {
     public static void main(String[] args) {
     Employee e1 = new Employee(1,"Akshay");
     try {
-        FileOutputStream fos = new FileOutputStream("Data/employee.ser");
+        FileOutputStream fos = new FileOutputStream("employee.ser");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
 
         oos.writeObject(e1);
@@ -23,6 +23,5 @@ public class Client {
     }finally{
         System.out.println("Serialization done !");
     }
-
     }
 }

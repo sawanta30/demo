@@ -1,8 +1,6 @@
 package com.example.demo;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -69,5 +67,14 @@ public class GroupbyDemo {
                 .collect(Collectors.joining(", ","[","]"));
 
         System.out.println(names);
+
+        Map<Department, Employee> dataMap = empList.stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary)), Optional::get)));
+//        System.out.println(dataMap);
+
+        dataMap.entrySet()
+                .forEach(e->{
+                    System.out.println(e.getKey()+"->"+e.getValue());
+                });
     }
 }

@@ -7,7 +7,7 @@ public class DeserializationClient {
 
     public static void main(String[] args) {
         try{
-            FileInputStream fis = new FileInputStream("Data/employee.ser");
+            FileInputStream fis = new FileInputStream("employee.ser");
             ObjectInputStream ois = new ObjectInputStream(fis);
 
            Employee e = (Employee) ois.readObject();
