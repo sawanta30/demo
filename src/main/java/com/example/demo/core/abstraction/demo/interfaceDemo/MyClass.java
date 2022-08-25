@@ -3,7 +3,7 @@ package com.example.demo.core.abstraction.demo.interfaceDemo;
 public class MyClass implements Left,Right {
 
     public static void main(String[] args) {
-
+        (new Left(){}).defaultMethodLeft();
     }
 
     @Override
