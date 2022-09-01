@@ -22,9 +22,7 @@ public class SumPair {
             if (map.containsKey(element))
                 count = count + map.get(element);
             if(!map.containsKey(array[i]))
-                map.put(array[i],0);
-
-
+                map.put(array[i],1);
             else
                 map.put(array[i],map.get(array[i])+1);
         }
