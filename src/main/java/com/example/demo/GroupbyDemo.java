@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class GroupbyDemo {
     private static List<Employee> empList = new ArrayList<>();
@@ -62,19 +63,45 @@ public class GroupbyDemo {
 //
 //        System.out.println(elist);
 
-        String names = empList.stream()
-                .map(e->e.getName())
-                .collect(Collectors.joining(", ","[","]"));
+//        String names = empList.stream()
+//                .map(e->e.getName())
+//                .collect(Collectors.joining(", ","[","]"));
+//
+//        System.out.println(names);
+//
+//        Map<Department, Employee> dataMap = empList.stream()
+//                .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary)), Optional::get)));
+////        System.out.println(dataMap);
+//
+//        dataMap.entrySet()
+//                .forEach(e->{
+//                    System.out.println(e.getKey()+"->"+e.getValue());
+//                });
 
-        System.out.println(names);
 
-        Map<Department, Employee> dataMap = empList.stream()
-                .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary)), Optional::get)));
-//        System.out.println(dataMap);
+        final List<Employee> financeList = empList.stream().filter(f -> Department.FINANCE.equals(f.getDepartment()))
+                .collect(Collectors.groupingBy(Employee::getDepartment))
+                .values()
+                .stream()
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
 
-        dataMap.entrySet()
-                .forEach(e->{
-                    System.out.println(e.getKey()+"->"+e.getValue());
-                });
+        System.out.println(financeList);
+
+
+        int[] arr = {1,2,3,4,5,6};
+        final int[] integers = Arrays.stream(arr)
+                .sorted()
+                //.boxed()
+                //.sorted(Collections.reverseOrder())
+                .skip(1)
+                //.mapToInt(Integer::intValue)
+                        .toArray();
+
+        System.out.println(Arrays.toString(integers));
+
     }
+
+
+
 }
