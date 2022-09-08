@@ -1,6 +1,6 @@
 package com.example.demo.core.abstraction.demo.interfaceDemo;
 
-public interface Left {
+public interface Left{
 
 //    void m1();
 

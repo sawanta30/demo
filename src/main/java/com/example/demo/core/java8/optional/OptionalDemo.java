@@ -8,8 +8,11 @@ public class OptionalDemo {
 
     public static void main(String[] args) {
         Optional<String> strOpt = Optional.ofNullable(null);
-        Optional<String> opt = Optional.empty();
-        System.out.println(strOpt.isPresent());
-        opt.get();
+        //Optional<String> opt = Optional.of(null);
+        //System.out.println(opt.isPresent());
+        Optional<Integer> optInt =  Optional.empty();
+//        strOpt.get();
+        //opt.get();
+        //optInt.get();
     }
 }

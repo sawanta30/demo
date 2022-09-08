@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class GroupbyDemo {
@@ -86,19 +87,26 @@ public class GroupbyDemo {
                 .flatMap(Collection::stream)
                 .collect(Collectors.toList());
 
-        System.out.println(financeList);
+//        System.out.println(financeList);
 
 
-        int[] arr = {1,2,3,4,5,6};
-        final int[] integers = Arrays.stream(arr)
-                .sorted()
-                //.boxed()
-                //.sorted(Collections.reverseOrder())
-                .skip(1)
-                //.mapToInt(Integer::intValue)
-                        .toArray();
+//        int[] arr = {1,2,3,4,5,6};
+//        final int[] integers = Arrays.stream(arr)
+//                .sorted()
+//                //.boxed()
+//                //.sorted(Collections.reverseOrder())
+//                .skip(1)
+//                //.mapToInt(Integer::intValue)
+//                        .toArray();
+//
+//        System.out.println(Arrays.toString(integers));
 
-        System.out.println(Arrays.toString(integers));
+        final Map<EmployeeType,Double> avgSalaryPerDept = empList.stream()
+                .collect(Collectors.groupingBy(Employee::getEmployeeType,Collectors.averagingDouble(Employee::getSalary)));
+
+
+
+        System.out.println(avgSalaryPerDept);
 
     }
 
